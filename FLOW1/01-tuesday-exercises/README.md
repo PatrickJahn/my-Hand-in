@@ -1,4 +1,4 @@
-#Tuesday 
+## Tuesday 
 
 Opgaverne er delt op i point opgaven og exercise 2 opgaven med customer delen. 
 Begge opgaver skulle gerne være fuldendt og virke.
