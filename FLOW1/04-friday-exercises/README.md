@@ -8,4 +8,4 @@ Du kan tilgå de forskellige endpoints ved:
 - /all
 
 
-Jeg havde dog problemer med JUnit testing. Der var noget galt med dependenciesne tror jeg. Fik en error hver gang. 
+Jeg havde dog problemer med JUnit testing. Der var noget galt med dependenciesne tror jeg. Fik en error hver gang, selvom jeg bare kørte en tom test. 
