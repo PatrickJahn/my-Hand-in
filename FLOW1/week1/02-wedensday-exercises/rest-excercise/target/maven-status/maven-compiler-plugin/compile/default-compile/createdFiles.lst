@@ -1,0 +1,6 @@
+model/AnimalNoDB.class
+rest/AnimalFromDB.class
+rest/AnimalDemo.class
+entity/Animal_.class
+rest/ApplicationConfig.class
+entity/Animal.class
