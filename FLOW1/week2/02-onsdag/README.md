@@ -25,6 +25,8 @@ Her kunne vi se at ved et GET request, kommer parameterene med oppe i url'en. Og
 ## Opgave 7 og 8 
 Aplicationen jeg brugte til disse hedder "SessionAndCookies". 
 
--opgave 7: 
+- opgave 7: 
+Her kan vi se at der ikke bliver gemnt nogle cookies. Session "Cookies" fungere således at serveren gemmer de parameter man requster i en liste, der har en leve tid på sessions' levetid (normalt 30 min) eller man lukker browseren. 
 
--opgave 8: 
+- opgave 8: 
+Her kan vi se der bliver gemt en cookie på client siden. Hvis vi lukker browseren ned og åbner den igen vil cookien stadig være der. 
