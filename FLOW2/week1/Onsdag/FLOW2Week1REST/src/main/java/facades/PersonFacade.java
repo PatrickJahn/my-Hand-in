@@ -4,10 +4,12 @@ package facades;
 import DTO.PersonDTO;
 import DTO.PersonsDTO;
 import entities.Person;
+import exceptions.PersonNotFoundException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 /**
@@ -54,31 +56,36 @@ public class PersonFacade implements IPersonFacade{
     }
 
     @Override
-    public PersonDTO deletePerson(Long id) {
+    public PersonDTO deletePerson(Long id) throws PersonNotFoundException {
                  EntityManager em = getEntityManager();
         Person person = em.find(Person.class, id);
 
-  em.getTransaction().begin();
-  em.remove(person);
-  em.getTransaction().commit();
+        if (person == null) {
+            throw new PersonNotFoundException("Could not delete, provided id does not exist");
+        }
+  
+    em.getTransaction().begin();
+    em.remove(person);
+    em.getTransaction().commit();
   
   return new PersonDTO(person);
         
     }
 
     @Override
-    public PersonDTO getPerson(Long id) {
+    public PersonDTO getPerson(Long id) throws PersonNotFoundException{
         EntityManager em = getEntityManager();
-     
-        em.getTransaction().begin();
+   
+       em.getTransaction().begin();
         Person p = em.find(Person.class, id);
        em.getTransaction().commit();
-       PersonDTO pDTO;
-       if (p != null){
-        pDTO = new PersonDTO(p.getFirstName(), p.getLastName(), p.getPhone(), p.getId());
-       } else {
-         pDTO = new PersonDTO();
+       
+       if (p == null){
+        throw new PersonNotFoundException("Person with provided ID not found");
        }
+       
+       PersonDTO pDTO = new PersonDTO(p.getFirstName(), p.getLastName(), p.getPhone(), p.getId());
+
            return pDTO;     
 
     }
@@ -96,10 +103,11 @@ public class PersonFacade implements IPersonFacade{
              EntityManager em = getEntityManager();
            Person pEdit =  em.find(Person.class, p.getId());
            
+           
            if (p.getFirstName() != null){
             pEdit.setFirstName(p.getFirstName());
            }
-  if (p.getLastName()!= null){
+    if (p.getLastName()!= null){
       pEdit.setLastName(p.getLastName());  
   }
   

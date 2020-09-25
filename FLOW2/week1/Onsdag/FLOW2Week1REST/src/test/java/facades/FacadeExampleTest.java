@@ -1,6 +1,7 @@
 package facades;
 
 import entities.Person;
+import exceptions.PersonNotFoundException;
 import utils.EMF_Creator;
 
 import javax.persistence.EntityManager;
@@ -56,7 +57,7 @@ public class FacadeExampleTest {
     }
 
     @Test
-    public void getByid(){
+    public void getByid() throws PersonNotFoundException{
         PersonFacade pf = PersonFacade.getFacadeExample(emf);
         assertEquals("Kristian", pf.getPerson(2L).getFirstName());
         

@@ -4,6 +4,8 @@ import DTO.PersonDTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entities.Person;
+import exceptions.MissingInputException;
+import exceptions.PersonNotFoundException;
 import utils.EMF_Creator;
 import facades.PersonFacade;
 import javax.persistence.EntityManagerFactory;
@@ -16,6 +18,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 //Todo Remove or change relevant parts before ACTUAL use
 @Path("person")
@@ -38,16 +41,16 @@ public class PersonResource {
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public String getById(@PathParam("id") long id) {
-        PersonFacade pf = PersonFacade.getFacadeExample(EMF);
-        PersonDTO personJS= pf.getPerson(id);
-        if (personJS.getLastName() != null){
-             return GSON.toJson(pf.getPerson(id));
+    public String getById(@PathParam("id") long id) throws PersonNotFoundException {
+   
+        PersonDTO personJS = FACADE.getPerson(id);
+        
+        return  GSON.toJson(personJS);
+  
+    
+             
     }
-      
-        return "{\"Person not found\":\" id not in Db\"}";
-      
-}
+
     
     
     @GET
@@ -62,17 +65,23 @@ public class PersonResource {
     @Path("add")
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
-    public String addPerson(String person){
+    public String addPerson(String person) throws MissingInputException{
+       
+        
         PersonDTO p = GSON.fromJson(person, PersonDTO.class);
+        if (p.getFirstName() == null || p.getLastName() == null || p.getPhone() == null){
+            throw new MissingInputException("First Name and/or Last Name and/or phone number is missing");
+        }
+        
         return GSON.toJson( FACADE.addPerson(p.getFirstName(), p.getLastName(), p.getPhone()));
 }
     
     @DELETE
     @Path("delete/{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public String deletePerson(@PathParam("id") Long id){
-        
-        return GSON.toJson( FACADE.deletePerson(id));
+    public String deletePerson(@PathParam("id") Long id) throws PersonNotFoundException{
+        PersonDTO p = FACADE.deletePerson(id);
+        return GSON.toJson(p);
 }
     
     @PUT

@@ -6,6 +6,7 @@
 package DTO;
 
 import entities.Person;
+import java.util.Objects;
 
 /**
  *
@@ -43,7 +44,11 @@ public class PersonDTO {
         this.lastName = lastName;
         this.phone = phone;
     }
-
+ public PersonDTO(String firstName, String lastName, String phone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+    }
     public String getFirstName() {
         return firstName;
     }
@@ -66,6 +71,31 @@ public class PersonDTO {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PersonDTO other = (PersonDTO) obj;
+        if (!Objects.equals(this.firstName, other.firstName)) {
+            return false;
+        }
+        if (!Objects.equals(this.lastName, other.lastName)) {
+            return false;
+        }
+        if (!Objects.equals(this.phone, other.phone)) {
+            return false;
+        }
+        return true;
     }
 
     
