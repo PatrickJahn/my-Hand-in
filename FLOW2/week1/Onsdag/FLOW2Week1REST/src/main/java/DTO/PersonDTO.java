@@ -52,6 +52,18 @@ public class PersonDTO {
         this.lastName = lastName;
         this.phone = phone;
     }
+
+    // For at indsætte adresse også
+    public PersonDTO(String firstName, String lastName, String phone, String city, String street, int zip) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.city = city;
+        this.street = street;
+        this.zip = zip;
+    }
+    
+    
  public PersonDTO(String firstName, String lastName, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
