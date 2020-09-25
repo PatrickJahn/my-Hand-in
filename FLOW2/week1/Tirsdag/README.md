@@ -1,2 +1,2 @@
 Her lærte vi om JPA's OneToOne, OneToMany og ManyToMany realtioner og hvordan vi skulle få de implemeteret ind i vores egen applikation. 
-Inde i Projektet ligger der under Entities, Entitet klasserne Person, Address, Fee og SwimStyle. De har hver en forskellig relation til Person. 
+Inde i Projektet ligger der under Entities, Entitet klasserne Person, Address, Fee og SwimStyle. De har hver en forskellig relation til Person. Og inde under entities packagen ligger der også en tester klasse, hvor jeg har testet de forskellige scenarier og kigget i DB'en. 
