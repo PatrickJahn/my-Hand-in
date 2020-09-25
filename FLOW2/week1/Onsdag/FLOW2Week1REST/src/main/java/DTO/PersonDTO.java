@@ -5,6 +5,7 @@
  */
 package DTO;
 
+import entities.Address;
 import entities.Person;
 import java.util.Objects;
 
@@ -19,7 +20,7 @@ public class PersonDTO {
      private String firstName;
     private String lastName;
     private String phone;
-
+    private String address;
     
     public PersonDTO(){}
     
@@ -28,6 +29,7 @@ public class PersonDTO {
         this.firstName = p.getFirstName();
         this.lastName = p.getLastName();
         this.phone = p.getPhone();
+        this.address =  p.getAddress().getCity()+ ", " + p.getAddress().getStreet();
                 
                 }
 
@@ -72,6 +74,12 @@ public class PersonDTO {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    
 
     
     @Override
