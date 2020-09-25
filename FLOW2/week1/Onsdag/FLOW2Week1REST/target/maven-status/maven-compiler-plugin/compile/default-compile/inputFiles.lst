@@ -1,2 +1,9 @@
-/Users/Patrick/NetBeansProjects/FLOW2Week1REST/src/main/java/Facade/IPersonFacade.java
-/Users/Patrick/NetBeansProjects/FLOW2Week1REST/src/main/java/entities/Person.java
+/Users/Patrick/Desktop/3. Semester/Opgaver/FLOW2Week1REST/src/main/java/rest/TestResource.java
+/Users/Patrick/Desktop/3. Semester/Opgaver/FLOW2Week1REST/src/main/java/DTO/PersonsDTO.java
+/Users/Patrick/Desktop/3. Semester/Opgaver/FLOW2Week1REST/src/main/java/facades/PersonFacade.java
+/Users/Patrick/Desktop/3. Semester/Opgaver/FLOW2Week1REST/src/main/java/entities/Person.java
+/Users/Patrick/Desktop/3. Semester/Opgaver/FLOW2Week1REST/src/main/java/rest/PersonResource.java
+/Users/Patrick/Desktop/3. Semester/Opgaver/FLOW2Week1REST/src/main/java/facades/IPersonFacade.java
+/Users/Patrick/Desktop/3. Semester/Opgaver/FLOW2Week1REST/src/main/java/DTO/PersonDTO.java
+/Users/Patrick/Desktop/3. Semester/Opgaver/FLOW2Week1REST/src/main/java/utils/EMF_Creator.java
+/Users/Patrick/Desktop/3. Semester/Opgaver/FLOW2Week1REST/src/main/java/rest/ApplicationConfig.java

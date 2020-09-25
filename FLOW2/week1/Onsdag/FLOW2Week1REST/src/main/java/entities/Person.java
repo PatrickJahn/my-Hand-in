@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -27,7 +29,10 @@ public class Person implements Serializable {
     private String firstName;
     private String lastName;
     private String phone;
+    
+    @Temporal(TemporalType.DATE)
     private Date created;
+     @Temporal(TemporalType.DATE)
     private Date lastEdited;
     
             
