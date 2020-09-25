@@ -45,7 +45,7 @@ public class PersonResource {
    
         PersonDTO personJS = FACADE.getPerson(id);
         
-        return  GSON.toJson(personJS.getAddress());
+        return  GSON.toJson(personJS.);
   
     
              
