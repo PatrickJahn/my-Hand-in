@@ -1,12 +1,15 @@
 
 let URL = "https://patrickcph.dk/Persons/api/person/"
+
+let editID; 
 const tableBody = document.getElementById("tableBody");
-
 const reloadBtn = document.getElementById("reloadBtn");
-
-
 const addBtn =document.getElementById("addBtn");
+const editBtn =document.getElementById("editBtn2");
+
+
 addBtn.addEventListener("click", addNewPersonToDB)
+editBtn.addEventListener("click", editPerson)
 
 reloadBtn.addEventListener("click", getAllPersons)
 
@@ -20,13 +23,14 @@ function getAllPersons(){
                            `<td>${person.firstName}</td>` + 
                            `<td>${person.lastName}</td>` +
                            `<td>${person.phone}</td>` +
-      `<td><a href="#" class="btndelete" id="${person.id}">delete</a> / <a href="#" class="btnedit" id="${person.id}">edit</a> </td></tr>`
+      `<td><a href="#" class="btndelete" id="${person.id}">delete</a> / <a href="#" class="btnedit" id="${person.id}" data-toggle="modal" data-target="#myModal2">edit</a> </td></tr>`
                                     ).join("");
           tableBody.innerHTML = body                          
    let deleteBtns = document.getElementsByClassName("btndelete");
-
+    let editBtns = document.getElementsByClassName("btnedit");
    for (var i = 0; i < deleteBtns.length; i++) {
     deleteBtns[i].addEventListener('click', deletePerson, false);
+    editBtns[i].addEventListener('click', setEditID(editBtns[i].id));
     
 }
    
@@ -37,6 +41,9 @@ function getAllPersons(){
 
 getAllPersons()
 
+function setEditID(id){
+editID = id;
+}
 
 function addNewPersonToDB(){
     let newPerson = {
@@ -64,13 +71,34 @@ function addNewPersonToDB(){
 function deletePerson(event){
   
     let id = event.target.id
-    console.log(id)
+
     let options = makeOptions("DELETE")
     let deleteURL = (URL + "delete/" + id)
     fetch(deleteURL, options)
     .then(res => res.json())
     .then(data => {
         console.log(data)
+        getAllPersons()
+    }).catch(err => console.log(err))
+}
+
+
+function editPerson(){
+  
+    let id = editID
+    let body = {
+        firstName : document.getElementById("fname2").value,
+        lastName : document.getElementById("lname2").value,
+        phone : document.getElementById("fphone2").value
+    }
+
+
+    let options = makeOptions("PUT", body)
+    let editURL = (URL +"update/"+ id)
+    fetch(editURL, options)
+    .then(res => res.json())
+    .then(data => {
+
         getAllPersons()
     }).catch(err => console.log(err))
 }
