@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    <title>Persons</title>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+    .button {
+  background-color: burlywood; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 20px;
+  cursor: pointer;
+}
+
+
+    .button2 {border-radius: 4px;}
+    .button3 {border-radius: 4px;
+    background-color: cornflowerblue;
+    margin-left: 0px;
+    }
+</style>
+
+    </head>
+
+    <body>
+        <button id="reloadBtn" class="button button2">Reload persons</button>
+        <button  type="button" class="button button3" data-toggle="modal" data-target="#myModal">Add new person</button>
+        
+<div class="container">           
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+     
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add a new person</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please type in all the information for the new person</p>
+        <input id="fname" placeholder="Firstname...">
+        <input id="lname" placeholder="Lastname...">
+        <input id="fphone" placeholder="Phone number...">
+        <button id="addBtn" class="button button3">Add person</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script type="module" src="main.js"></script>
+
+    </body>
+</html>
