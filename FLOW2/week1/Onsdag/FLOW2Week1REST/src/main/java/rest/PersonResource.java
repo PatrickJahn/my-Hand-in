@@ -3,6 +3,7 @@ package rest;
 import DTO.PersonDTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import entities.Address;
 import entities.Person;
 import exceptions.MissingInputException;
 import exceptions.PersonNotFoundException;
@@ -67,13 +68,12 @@ public class PersonResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public String addPerson(String person) throws MissingInputException{
        
-        
         PersonDTO p = GSON.fromJson(person, PersonDTO.class);
-        if (p.getFirstName() == null || p.getLastName() == null || p.getPhone() == null){
-            throw new MissingInputException("First Name and/or Last Name and/or phone number is missing");
+        if (p.getFirstName() == null || p.getLastName() == null || p.getPhone() == null || p.getStreet() == null){
+            throw new MissingInputException("First Name and/or Last Name and/or phone number and/or address is missing");
         }
-        
-        return GSON.toJson( FACADE.addPerson(p.getFirstName(), p.getLastName(), p.getPhone()));
+        Address a = new Address(p.getStreet(), p.getCity(), p.getZip());
+        return GSON.toJson( FACADE.addPerson(p.getFirstName(), p.getLastName(), p.getPhone(), a));
 }
     
     @DELETE

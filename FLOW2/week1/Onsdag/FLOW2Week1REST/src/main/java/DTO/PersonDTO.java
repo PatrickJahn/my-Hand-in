@@ -5,6 +5,9 @@
  */
 package DTO;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import entities.Address;
 import entities.Person;
 import java.util.Objects;
 
@@ -14,12 +17,14 @@ import java.util.Objects;
  */
 public class PersonDTO {
     
-    
+
     private Long id;
      private String firstName;
     private String lastName;
     private String phone;
-
+    private String city;
+    private String street;
+    private int zip;
     
     public PersonDTO(){}
     
@@ -28,6 +33,9 @@ public class PersonDTO {
         this.firstName = p.getFirstName();
         this.lastName = p.getLastName();
         this.phone = p.getPhone();
+        this.city = p.getAddress().getCity();
+        this.street = p.getAddress().getStreet();
+        this.zip = p.getAddress().getZip();
                 
                 }
 
@@ -44,6 +52,18 @@ public class PersonDTO {
         this.lastName = lastName;
         this.phone = phone;
     }
+
+    // For at indsætte adresse også
+    public PersonDTO(String firstName, String lastName, String phone, String city, String street, int zip) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.city = city;
+        this.street = street;
+        this.zip = zip;
+    }
+    
+    
  public PersonDTO(String firstName, String lastName, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -72,6 +92,21 @@ public class PersonDTO {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public int getZip() {
+        return zip;
+    }
+
+   
+    
 
     
     @Override

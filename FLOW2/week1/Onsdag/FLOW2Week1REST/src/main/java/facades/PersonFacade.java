@@ -3,6 +3,7 @@ package facades;
 
 import DTO.PersonDTO;
 import DTO.PersonsDTO;
+import entities.Address;
 import entities.Person;
 import exceptions.PersonNotFoundException;
 import java.util.List;
@@ -43,15 +44,16 @@ public class PersonFacade implements IPersonFacade{
     }
 
     @Override
-    public PersonDTO addPerson(String fName, String lName, String phone) {
+    public PersonDTO addPerson(String fName, String lName, String phone, Address address) {
          EntityManager em = getEntityManager();
          Person p = new Person(fName, lName, phone);
+         p.setAddress(address);
          em.getTransaction().begin();
          
          em.persist(p);
          
          em.getTransaction().commit();
-        return new PersonDTO(p.getFirstName(), p.getLastName(), p.getPhone(), p.getId());
+        return new PersonDTO(p);
 
     }
 
@@ -84,7 +86,7 @@ public class PersonFacade implements IPersonFacade{
         throw new PersonNotFoundException("Person with provided ID not found");
        }
        
-       PersonDTO pDTO = new PersonDTO(p.getFirstName(), p.getLastName(), p.getPhone(), p.getId());
+       PersonDTO pDTO = new PersonDTO(p);
 
            return pDTO;     
 
