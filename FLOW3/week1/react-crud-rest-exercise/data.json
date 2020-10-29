@@ -1,0 +1,53 @@
+{
+  "api": [
+    {
+      "id": "59dde0def94062f06bcc1211",
+      "age": "28",
+      "name": "Gale Sullivan",
+      "gender": "male",
+      "email": "galesullivan@zedalis.com"
+    },
+    {
+      "id": "59dde0deb5516ea4f23590f9",
+      "age": 31,
+      "name": "Karyn Fulton",
+      "gender": "female",
+      "email": "karynfulton@zedalis.com"
+    },
+    {
+      "id": "59dde0de06024380d2fe4f86",
+      "age": 24,
+      "name": "Billie Lamb",
+      "gender": "female",
+      "email": "billielamb@zedalis.com"
+    },
+    {
+      "id": "q35cULz",
+      "age": "92",
+      "name": "Eric The Red",
+      "email": "EricRedingson@gmail.com",
+      "gender": "none"
+    },
+    {
+      "id": "QXnNeEO",
+      "age": "46",
+      "name": "Adofl Weitler",
+      "email": "Adfolfius@dasUnders.de",
+      "gender": "male"
+    },
+    {
+      "id": "rdPWtvk",
+      "age": "24",
+      "name": "Hanser Hinter",
+      "email": "HansHinter@Hinter.com",
+      "gender": "male"
+    },
+    {
+      "id": "jgeqAIC",
+      "age": "83",
+      "name": "Michael Jacksin",
+      "email": "Jackson@msn.com",
+      "gender": "Legend"
+    }
+  ]
+}
